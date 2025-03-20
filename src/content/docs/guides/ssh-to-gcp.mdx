@@ -1,0 +1,48 @@
+---
+title: Solved! SSH to Google cloud instance will have "Permission denied (publickey)"
+description: A reference page in my new Starlight docs site.
+---
+import { Code } from 'astro-expressive-code/components'
+
+export const errorCode = `promisepreston@52.174.274.72: Permission denied (publickey)`;
+export const ssh_keygen = `ssh-keygen -t rsa -f ~/.ssh/[KEY_FILENAME] -C [USERNAME]`;
+export const ssh_kegen_my_case = `ssh-keygen -t rsa -f ~/.ssh/kubernetes-trial -C promisepreston`;
+export const ssh_directory = `cd ~/.ssh`;
+export const restrict_access = `chmod 400 [KEY_FILENAME]`;
+export const restrict_access_my_case = `chmod 400 kubernetes-trial`;
+export const open_pub_key = `sudo cat kubernetes-trial.pub`;
+export const ssh_pub_key = `ssh-rsa [KEY_VALUE] [USERNAME]`;
+export const connect_instance = `ssh -i private-key username@external-ip-of-the-virtual-instance`;
+export const connect_instance_my_case = `ssh -i kubernetes-trial promisepreston@52.174.274.72`;
+
+
+
+<Code code={errorCode} lang="bash" />
+
+**Here's how I solved it:**
+Open a terminal on your workstation and use the ssh-keygen command to generate a new key. Specify the -C flag to add a comment with your username.
+<Code code={ssh_keygen} lang="bash" />
+In my case it was:
+<Code code={ssh_kegen_my_case} lang="bash" />
+Navigate into the .ssh directory:
+<Code code={ssh_directory} lang="bash" />
+Restrict access to your private key so that only you can read it and nobody can write to it.
+<Code code={restrict_access} lang="bash" />
+In my case it was:
+<Code code={restrict_access_my_case} lang="bash" />
+Double click on kubernetes-trial.pub to open it OR print it on the console using the cat command:
+<Code code={open_pub_key} lang="bash" />
+The public SSH key should be of this format:
+<Code code={ssh_pub_key} lang="bash" />
+**Copy its contents and paste in the SSH Section of your instance under the Metadata section**
+In a local terminal, navigate to the directory where you have the private SSH key file, use the ssh command along with your private SSH key file, the username, and the external IP address of the instance to connect. For example:
+<Code code={connect_instance} lang="bash" />
+In my case it was:
+<Code code={connect_instance_my_case} lang="bash" />
+
+Reference pages are ideal for outlining how things work in terse and clear terms.
+Less concerned with telling a story or addressing a specific use case, they should give a comprehensive outline of what you're documenting.
+
+## Further reading
+
+- Read [about reference](https://diataxis.fr/reference/) in the Diátaxis framework
