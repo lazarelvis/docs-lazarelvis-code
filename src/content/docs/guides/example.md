@@ -1,5 +1,5 @@
 ---
-title: Example Guide
+title: Python
 description: A guide in my new Starlight docs site.
 ---
 

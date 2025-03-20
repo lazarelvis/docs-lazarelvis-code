@@ -11,8 +11,9 @@ export default defineConfig({
 				github: 'https://github.com/withastro/starlight',
 			},
 			sidebar: [
+				{ slug: 'home/home' },
 				{
-					label: 'Guides',
+					label: 'Python',
 					items: [
 						// Each item here is one entry in the navigation menu.
 						{ label: 'Example Guide', slug: 'guides/example' },
@@ -20,8 +21,12 @@ export default defineConfig({
 					],
 				},
 				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
+					label: 'Dev Ops',
+					items: [
+						// Each item here is one entry in the navigation menu.
+						{ label: 'SSL cert', slug: 'devops/sslcert' },
+						{ label: 'SSH to GCP', slug: 'devops/ssh-to-gcp' },
+					],
 				},
 			],
 		}),
