@@ -29,6 +29,8 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
+            export NVM_DIR=~/.nvm
+            source ~/.nvm/nvm.sh
             cd /root/docs-lazarelvis-code # Path where you want to deploy
             nvm use 22 #use node js version 22
             git pull origin master # or your branch
