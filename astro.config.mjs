@@ -26,6 +26,7 @@ export default defineConfig({
 						// Each item here is one entry in the navigation menu.
 						{ label: 'SSL cert', slug: 'devops/sslcert' },
 						{ label: 'SSH to GCP', slug: 'devops/ssh-to-gcp' },
+						{ label: 'Multiple node js Versions', slug: 'devops/multiple-nodejs-versions' },
 					],
 				},
 			],

@@ -1,0 +1,33 @@
+---
+title: How to setup multiple Node js versions
+description: Usually we we have multiple apps using diffrent versions of node and npm
+---
+import { Code } from 'astro-expressive-code/components'
+
+export const curl = `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash`;
+export const restart_shell = `\. "$HOME/.nvm/nvm.sh"`
+export const install_node = `nvm install 22`
+export const verify_node = `node -v 
+nvm current
+`
+export const change_version = `nvm use 16`
+
+
+We will use Node Version Manager (nvm)
+Download and install nvm:
+<Code code={curl} lang="bash" />
+Restarting the shell
+<Code code={restart_shell} lang="bash" />
+Download and install Node.js:
+<Code code={install_node} lang="bash" />
+Verify the Node.js version:
+<Code code={verify_node} lang="bash" />
+And for changing the version we use
+<Code code={change_version} lang="bash" />
+
+Reference pages are ideal for outlining how things work in terse and clear terms.
+Less concerned with telling a story or addressing a specific use case, they should give a comprehensive outline of what you're documenting.
+
+## Further reading
+
+- Read [about reference](https://diataxis.fr/reference/) in the Diátaxis framework
