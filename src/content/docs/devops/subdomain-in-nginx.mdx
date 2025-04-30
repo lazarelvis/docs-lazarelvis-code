@@ -1,0 +1,32 @@
+---
+title: Add subdomain in Nginx
+description: A reference page in my new Starlight docs site.
+---
+
+import { Code } from 'astro-expressive-code/components'
+
+
+Un subdomeniu in nginx:
+<Code code="cd /etc/nginx/sites-available" lang="bash" />
+copy default configuration example.com with your domain
+<Code code="cp default example.com" lang="bash" />
+Edit your config
+<Code code="nano example.ro" lang="bash" />
+In config file you need to modify example.com with your domain and folder location
+<Code code="modify server_name and root /var/www/example.com" lang="bash" />
+Exit file and restart nginx service
+<Code code="systemctl restart nginx" lang="bash" />
+Now you create a symlink, from sites-available to sites-enabled
+<Code code="sudo ln -s /etc/nginx/sites-available/example.ro /etc/nginx/sites-enabled/example.ro" lang="bash" />
+Restart nginx service
+<Code code="systemctl restart nginx" lang="bash" />
+Add A record on domain provider
+<Code code="add a A record" lang="bash" />
+
+
+
+
+
+
+
+

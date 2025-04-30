@@ -27,6 +27,7 @@ export default defineConfig({
 						{ label: 'SSL cert', slug: 'devops/sslcert' },
 						{ label: 'SSH to GCP', slug: 'devops/ssh-to-gcp' },
 						{ label: 'Multiple node js Versions', slug: 'devops/multiple-nodejs-versions' },
+						{ label: 'Subdomain in nginx', slug: 'devops/subdomain-in-nginx' },
 					],
 				},
 			],
