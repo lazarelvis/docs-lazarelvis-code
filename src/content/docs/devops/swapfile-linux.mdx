@@ -1,0 +1,33 @@
+---
+title: Swapfile setup in Linux 
+description: A reference page in my new Starlight docs site.
+---
+
+import { Code } from 'astro-expressive-code/components'
+
+Update linux image 
+<Code code="sudo apt update && sudo apt upgrade" lang="bash" />
+Alocate location 
+<Code code="sudo fallocate -l 1G /swapfile" lang="bash" />
+Alocate the size of swap
+<Code code="sudo dd if=/dev/zero of=/swapfile bs=1024 count=1048576" lang="bash" />
+Give only system permissions
+<Code code="sudo chmod 600 /swapfile" lang="bash" />
+Fomating the space
+<Code code="sudo mkswap /swapfile" lang="bash" />
+Enable swapfile
+<Code code="sudo swapon /swapfile" lang="bash" />
+Edit the file so it remains after restart
+<Code code="sudo nano /etc/fstab" lang="bash" />
+Add the text to the file and save
+<Code code="/swapfile swap swap defaults 0 0" lang="text" />
+Mount the swapfile (optional)
+<Code code="sudo mount -a" lang="bash" />
+Verify with:
+<Code code="htop" lang="bash" />
+
+
+
+
+
+

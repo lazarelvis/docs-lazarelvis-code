@@ -8,7 +8,7 @@ export default defineConfig({
 		starlight({
 			title: 'My Docs',
 			social: {
-				github: 'https://github.com/withastro/starlight',
+				github: 'https://github.com/lazarelvis',
 			},
 			sidebar: [
 				{ slug: 'home/home' },
@@ -23,6 +23,7 @@ export default defineConfig({
 					label: 'Dev Ops',
 					items: [
 						// Each item here is one entry in the navigation menu.
+						{ label: 'Swappfile setup', slug: 'devops/swapfile-linux' },
 						{ label: 'Setup Nginx', slug: 'devops/install-nginx' },
 						{ label: 'Setup NodeJS', slug: 'devops/install-nodejs' },
 						{ label: 'Nginx SSL', slug: 'devops/sslcert' },
