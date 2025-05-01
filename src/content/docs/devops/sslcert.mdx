@@ -1,0 +1,32 @@
+---
+title: Install SSL certificate 
+description: A reference page in my new Starlight docs site.
+---
+import { Code } from 'astro-expressive-code/components'
+export const exampleCode = `server {
+  ...
+  server_name test.example.com;
+  ...
+}`;
+
+## Install Certbot and the Nginx Plugin
+First, install Certbot and the Nginx plugin using the following command:
+<Code code="sudo apt install certbot python3-certbot-nginx" lang="bash" />
+Edit your Nginx configuration file to include your server name. Open the file with a text editor:
+<Code code="sudo vim /etc/nginx/sites-available/default" lang="bash" />
+Add your subdomain in the `server_name` directive:
+<Code code={exampleCode} lang="text" />
+<Code code="sudo nginx -t" lang="bash" />
+## Create an A Record in Your Domain Registrar
+- Record Type: A
+- Name: test.example.com
+- Value: IPv4 address of the server
+
+Run Certbot to obtain an SSL certificate for your subdomain:
+<Code code="sudo certbot --nginx -d test.example.com" lang="bash" />
+## Renewing the Certificate
+To check if the certificate is close to expiring, run:
+<Code code="sudo certbot renew --dry-run" lang="bash" />
+To renew the certificate, run:
+<Code code="sudo certbot renew" lang="bash" />
+This guide ensures that your Nginx server is secured with SSL, making your site accessible over HTTPS.

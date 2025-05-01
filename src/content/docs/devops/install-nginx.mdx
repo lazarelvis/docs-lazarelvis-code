@@ -1,0 +1,33 @@
+---
+title: Install/Setup Nginx
+description: A reference page in my new Starlight docs site.
+---
+
+import { Code } from 'astro-expressive-code/components'
+export const exampleCode = `server {
+  listen 80;  # Listen on port 80, the default HTTP port
+  server_name localhost;  # The server name, here it is set to localhost
+
+  root /var/www/html;  # The root directory where files are served from
+  index index.html index.htm;  # The default files to serve
+
+  location / {
+    try_files $uri $uri/ =404;  # Try to serve the requested URI, if not found return a 404
+  }
+}`;
+
+## Installing Nginx on Ubuntu
+Install Nginx
+<Code code="sudo apt-get install nginx" lang="bash" />
+Start and enable Nginx
+<Code code="sudo systemctl start nginx" lang="bash" />
+<Code code="sudo systemctl enable nginx" lang="bash" />
+## Configuring Nginx on Ubuntu
+<Code code="sudo code /etc/nginx/sites-available/default" lang="bash" />
+<Code code={exampleCode} lang="text" />
+This command navigates to the web root directory.
+<Code code="cd /var/www/html" lang="bash" />
+Test the Nginx configuration
+<Code code="sudo nginx -t" lang="bash" />
+Reload Nginx to apply the changes
+<Code code="sudo systemctl reload nginx" lang="bash" />

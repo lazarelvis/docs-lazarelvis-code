@@ -1,0 +1,42 @@
+---
+title: Redirect public ip to Domain (301 redirect)
+description: A reference page in my new Starlight docs site.
+---
+
+import { Code } from 'astro-expressive-code/components'
+
+export const exampleCode1 = `server {
+        listen 80;
+        listen [::]:80;
+        server_name example.ro www.example.ro;#
+        root /var/www/html;
+        index index.html;
+        location / {
+                try_files $uri $uri/ =404;
+        }
+}`;
+export const exampleCode2 = `server {
+        listen 80;
+        server_name "public IP adress";
+        return 301 http://example.ro;
+}`;
+
+
+Go to the sites-available websites
+<Code code="cd /etc/nginx/sites-available" lang="bash" />
+Copy default to specific domain
+<Code code="cp default example.ro" lang="bash" />
+Edit file
+<Code code="nano example.ro" lang="bash" />
+Add server configuration
+<Code code={exampleCode1} lang="text" />
+Add redirect from public ip to your domain
+<Code code={exampleCode2} lang="text" />
+Save and restart nginx server
+
+
+
+
+
+
+

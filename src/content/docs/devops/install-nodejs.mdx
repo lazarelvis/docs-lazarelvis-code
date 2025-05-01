@@ -1,0 +1,19 @@
+---
+title: Install NodeJS (nvm)
+description: A reference page in my new Starlight docs site.
+---
+
+import { Code } from 'astro-expressive-code/components'
+
+export const exampleCode = `\\. "$HOME/.nvm/nvm.sh"`;
+
+Download and install nvm:
+<Code code="curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash" lang="bash" />
+in lieu of restarting the shell
+<Code code={exampleCode} lang="bash" />
+Download and install Node.js:
+<Code code="nvm install 22" lang="bash" />
+Verify the Node.js version:
+<Code code="node -v" lang="bash" />
+Verify npm version:
+<Code code="npm -v" lang="bash" />

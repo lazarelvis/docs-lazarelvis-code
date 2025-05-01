@@ -17,17 +17,20 @@ export default defineConfig({
 					items: [
 						// Each item here is one entry in the navigation menu.
 						{ label: 'Example Guide', slug: 'guides/example' },
-						{ label: 'SSH to gcp', slug: 'guides/ssh-to-gcp' },
 					],
 				},
 				{
 					label: 'Dev Ops',
 					items: [
 						// Each item here is one entry in the navigation menu.
-						{ label: 'SSL cert', slug: 'devops/sslcert' },
+						{ label: 'Setup Nginx', slug: 'devops/install-nginx' },
+						{ label: 'Setup NodeJS', slug: 'devops/install-nodejs' },
+						{ label: 'Nginx SSL', slug: 'devops/sslcert' },
 						{ label: 'SSH to GCP', slug: 'devops/ssh-to-gcp' },
 						{ label: 'Multiple node js Versions', slug: 'devops/multiple-nodejs-versions' },
 						{ label: 'Subdomain in nginx', slug: 'devops/subdomain-in-nginx' },
+						{ label: 'Redirect Public IP to domain', slug: 'devops/redirect-public-ip' },
+
 					],
 				},
 			],
