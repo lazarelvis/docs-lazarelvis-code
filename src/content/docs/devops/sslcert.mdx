@@ -3,6 +3,7 @@ title: Install SSL certificate
 description: A reference page in my new Starlight docs site.
 ---
 import { Code } from 'astro-expressive-code/components'
+import { Aside } from '@astrojs/starlight/components';
 export const exampleCode = `server {
   ...
   server_name test.example.com;
@@ -23,7 +24,8 @@ Add your subdomain in the `server_name` directive:
 - Value: IPv4 address of the server
 
 Run Certbot to obtain an SSL certificate for your subdomain:
-<Code code="sudo certbot --nginx -d test.example.com" lang="bash" />
+<Aside type="caution">Install for both: www.example.com and example.com because it can apear errors</Aside>
+<Code code="sudo certbot certonly --nginx -d webdigit.ro -d www.webdigit.ro" lang="bash" />
 ## Renewing the Certificate
 To check if the certificate is close to expiring, run:
 <Code code="sudo certbot renew --dry-run" lang="bash" />

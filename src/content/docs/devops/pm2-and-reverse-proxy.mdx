@@ -1,0 +1,59 @@
+---
+title: Setup PM2 and Nginx reverse proxy for NextJS/React app
+description: Usually we we have multiple apps using diffrent versions of node and npm
+---
+import { Code } from 'astro-expressive-code/components'
+
+export const code = `pm2 start npm --name "next-app" -- start`
+export const code2 = `pm2 startup
+pm2 save`
+export const code3 = `server {
+    listen 80;
+    server_name yourdomain.com;
+
+    location / {
+        proxy_pass http://localhost:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+`
+export const code4 = `sudo ln -s /etc/nginx/sites-available/yourdomain.com /etc/nginx/sites-enabled/
+sudo nginx -t
+sudo systemctl reload nginx
+`
+
+## 1. Use PM2 to Keep It Running
+Clone your Next.js project
+<Code code="git clone https://github.com/your-username/your-repo.git" lang="bash" />
+Install dependencies
+<Code code="npm install" lang="bash" />
+Create a .env file
+<Code code="EMAIL_USER=your@email.com" lang="text" />
+Build the project
+<Code code="npm run build" lang="bash" />
+Install PM2:
+<Code code="npm install -g pm2" lang="bash" />
+Start the app in !git folder!:
+<Code code={code} lang="bash" />
+Save process list:
+<Code code={code2} lang="bash" />
+## 2. Set Up Reverse Proxy with Nginx (for port 80/443)
+Basic Nginx config:
+<Code code="sudo nano /etc/nginx/sites-available/yourdomain.com" lang="bash" />
+Config file:
+<Code code={code3} lang="text" />
+Add A record public Ip to domain to the dns provider
+Enable config:
+<Code code={code4} lang="bash" />
+Now with your domain  example you should be able to access NextJS/React App
+
+## 3. Enable HTTPS with Certbot
+
+
+
+
+

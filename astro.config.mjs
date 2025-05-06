@@ -27,6 +27,7 @@ export default defineConfig({
 						{ label: 'Setup Nginx', slug: 'devops/install-nginx' },
 						{ label: 'Setup NodeJS', slug: 'devops/install-nodejs' },
 						{ label: 'Nginx SSL', slug: 'devops/sslcert' },
+						{ label: 'PM2 and reverse proxy', slug: 'devops/pm2-and-reverse-proxy' },
 						{ label: 'SSH to GCP', slug: 'devops/ssh-to-gcp' },
 						{ label: 'Multiple node js Versions', slug: 'devops/multiple-nodejs-versions' },
 						{ label: 'Subdomain in nginx', slug: 'devops/subdomain-in-nginx' },
