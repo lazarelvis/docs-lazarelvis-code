@@ -21,7 +21,8 @@ export const code3 = `server {
     }
 }
 `
-export const code4 = `sudo ln -s /etc/nginx/sites-available/yourdomain.com /etc/nginx/sites-enabled/
+export const code4 = `sudo unlink /etc/nginx/sites-enabled/default
+sudo ln -s /etc/nginx/sites-available/yourdomain.com /etc/nginx/sites-enabled/
 sudo nginx -t
 sudo systemctl reload nginx
 `
